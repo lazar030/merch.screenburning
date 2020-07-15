@@ -1,0 +1,22 @@
+$primary: #6693e0;
+
+.box-card {
+  padding: 15px;
+  text-align: center;
+  border: 2px solid $primary;
+  border-radius: 5px;
+  cursor: pointer;
+  min-height: 315px;
+
+  @media screen and (min-width: 768px) and (max-width: 964px) {
+    min-height: 430px;
+  }
+
+  &:hover {
+    border-color: blue;
+  }
+
+  .icon {
+    font-size: 50px;
+  }
+}

@@ -1,0 +1,76 @@
+<ion-content>
+  <my-header></my-header>
+  <ion-grid
+    class="ion-margin-bottom ion-no-padding ion-padding-bottom b-bottom  ion-custom-container"
+  >
+    <div class="ion-padding-top ion-padding-bottom bg-grey">
+      <my-title [title]="title"></my-title>
+    </div>
+    <ion-row class="info ion-md-container ion-padding">
+      <ion-col class="ion-margin-top" size="12" sizeMd="6">
+        <p>
+          <b>Arena Prints </b> will buy back each used frame for a $2.50 credit
+          on your next screen burn order.
+        </p>
+        <br />
+        <p>
+          If have 3 or more used frames and want to send them back, let us know
+          when you're ready to return the frames and we'll send you a pre-paid
+          mailing label.
+        </p>
+      </ion-col>
+      <ion-col class="ion-md-padding" size="12" sizeMd="6">
+        <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
+          <div class="form-input">
+            <ion-label>Name</ion-label>
+            <ion-input
+              name="name"
+              formControlName="name"
+              class="ion-no-padding border-bottom"
+              type="text"
+            ></ion-input>
+          </div>
+          <div class="form-input">
+            <ion-label>Email<span class="red">*</span></ion-label>
+            <ion-input
+              name="email"
+              formControlName="email"
+              pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{1,}[.]{1}[a-zA-Z]{2,}"
+              class="ion-no-padding border-bottom"
+              type="email"
+            ></ion-input>
+            <p class="invalid" *ngIf="email.invalid && submitted">
+              Email is required.
+            </p>
+          </div>
+          <div class="form-input">
+            <ion-label>Comment</ion-label>
+            <ion-textarea
+              id="comment"
+              name="comment"
+              formControlName="comment"
+              class="border-top border-left border-right border-bottom"
+              rows="3"
+              cols="20"
+            ></ion-textarea>
+          </div>
+          <div class="form-input">
+            <ion-button type="submit">Send</ion-button>
+          </div>
+        </form>
+      </ion-col>
+    </ion-row>
+
+    <div class="bg-grey">
+      <my-capabilities></my-capabilities>
+    </div>
+  </ion-grid>
+
+  <my-testimonials></my-testimonials>
+
+  <div class="divider"></div>
+
+  <my-footer></my-footer>
+
+  <my-chat #chat></my-chat>
+</ion-content>
